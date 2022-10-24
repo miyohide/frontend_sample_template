@@ -2,6 +2,7 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint --ext js .",
+    "lint:fix": "eslint --ext js --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
