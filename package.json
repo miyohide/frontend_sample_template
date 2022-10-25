@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "webpack",
+    "dev": "cross-env NODE_ENV=\"development\" webpack serve",
+    "build": "cross-env NODE_ENV=\"production\" webpack build",
     "watch": "webpack --watch",
     "lint": "eslint --ext js .",
     "lint:fix": "eslint --ext js --fix .",
