@@ -26,5 +26,10 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+  },
   target: ["web", "es5"],
 };
