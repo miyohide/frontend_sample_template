@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // developmentモードか否か
 const isDev = process.env.NODE_ENV === "development";
@@ -10,6 +11,18 @@ module.exports = {
   mode: isDev ? "development" : "production",
   devtool: isDev ? "source-map" : undefined,
   entry: "./src/index.js",
+
+  plugins: [
+    // HTMLもwebpackから出力するためのプラグインの設定
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      // <script> - </script>タグの挿入位置
+      inject: "body",
+      // スクリプト読み込みのタイプ
+      scriptLoading: "defer"
+    }),
+  ],
+
   module: {
     rules: [
       {
