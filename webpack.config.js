@@ -1,14 +1,15 @@
 const path = require('path');
 
+// developmentモードか否か
+const isDev = process.env.NODE_ENV === "development";
+
+// 補完を効かせるためのJSDoc
+/** @type {import('webpack').Configuration} */
+
 module.exports = {
-  mode: "production",
+  mode: isDev ? "development" : "production",
+  devtool: isDev ? "source-map" : undefined,
   entry: "./src/index.js",
-  watchOptions: {
-    ignored: /node_modules/
-  },
-  output: {
-    path: path.resolve(__dirname, 'public/js'),
-  },
   module: {
     rules: [
       {
