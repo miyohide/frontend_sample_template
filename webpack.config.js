@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // developmentモードか否か
 const isDev = process.env.NODE_ENV === "development";
@@ -13,6 +14,8 @@ module.exports = {
   entry: "./src/index.js",
 
   plugins: [
+    // CSSを別ファイルとして出力するためのプラグインのインスタンス作成
+    new MiniCssExtractPlugin(),
     // HTMLもwebpackから出力するためのプラグインの設定
     new HtmlWebpackPlugin({
       template: "./src/index.html",
@@ -42,7 +45,7 @@ module.exports = {
         // SCSS or CSSファイルに対する処理
         test: /\.scss$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
