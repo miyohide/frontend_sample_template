@@ -25,6 +25,11 @@ module.exports = {
           },
         ],
       },
+      {
+        // CSSファイルに対する処理
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   devServer: {
