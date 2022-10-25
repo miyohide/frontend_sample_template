@@ -26,8 +26,8 @@ module.exports = {
         ],
       },
       {
-        // CSSファイルに対する処理
-        test: /\.css$/,
+        // SCSS or CSSファイルに対する処理
+        test: /\.scss$/,
         use: [
           "style-loader",
           {
@@ -36,6 +36,13 @@ module.exports = {
               // devモードではソースマップをつける
               sourceMap: isDev,
             },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              // devモードではソースマップをつける
+              sourceMap: isDev,
+            }
           },
         ],
       },
