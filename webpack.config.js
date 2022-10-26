@@ -2,9 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const entriesGenerator = require("./config/webpack/utils/entriesGenerator");
 
 // developmentモードか否か
 const isDev = process.env.NODE_ENV === "development";
+
+const entries = entriesGenerator.getEntries(path.resolve(__dirname, "src", "javascripts"));
 
 // 補完を効かせるためのJSDoc
 /** @type {import('webpack').Configuration} */
@@ -12,7 +15,7 @@ const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   mode: isDev ? "development" : "production",
   devtool: isDev ? "source-map" : undefined,
-  entry: "./src/javascripts/index.js",
+  entry: entries,
   output: {
     path: path.resolve(__dirname, "dist"),
   },
