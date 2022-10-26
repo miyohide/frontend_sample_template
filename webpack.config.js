@@ -18,7 +18,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     // HTMLもwebpackから出力するためのプラグインの設定
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/htmls/index.html",
       // <script> - </script>タグの挿入位置
       inject: "body",
       // スクリプト読み込みのタイプ
