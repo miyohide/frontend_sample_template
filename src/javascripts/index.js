@@ -1,5 +1,5 @@
 import { hello } from "./hello";
-import "./stylesheets/styles.scss";
+import "../stylesheets/styles.scss";
 
 const message = "Hello World";
 

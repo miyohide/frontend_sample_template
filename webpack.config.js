@@ -11,7 +11,7 @@ const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   mode: isDev ? "development" : "production",
   devtool: isDev ? "source-map" : undefined,
-  entry: "./src/index.js",
+  entry: "./src/javascripts/index.js",
 
   plugins: [
     // CSSを別ファイルとして出力するためのプラグインのインスタンス作成
