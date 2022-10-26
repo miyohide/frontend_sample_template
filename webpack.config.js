@@ -26,13 +26,7 @@ module.exports = {
     // CSSを別ファイルとして出力するためのプラグインのインスタンス作成
     new MiniCssExtractPlugin(),
     // HTMLもwebpackから出力するためのプラグインの設定
-    new HtmlWebpackPlugin({
-      template: "./src/htmls/index.html",
-      // <script> - </script>タグの挿入位置
-      inject: "body",
-      // スクリプト読み込みのタイプ
-      scriptLoading: "defer"
-    }),
+    ...entriesGenerator.buildHtmlWebpackPlugins(entries, path.resolve(__dirname, "src", "htmls")),
   ],
 
   module: {
