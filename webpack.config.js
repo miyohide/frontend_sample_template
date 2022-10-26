@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // developmentモードか否か
 const isDev = process.env.NODE_ENV === "development";
@@ -12,8 +13,13 @@ module.exports = {
   mode: isDev ? "development" : "production",
   devtool: isDev ? "source-map" : undefined,
   entry: "./src/javascripts/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+  },
 
   plugins: [
+    // ビルドごとに出力先フォルダ（dist）内を削除する
+    new CleanWebpackPlugin(),
     // CSSを別ファイルとして出力するためのプラグインのインスタンス作成
     new MiniCssExtractPlugin(),
     // HTMLもwebpackから出力するためのプラグインの設定
