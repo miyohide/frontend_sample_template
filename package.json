@@ -3,8 +3,11 @@
     "dev": "cross-env NODE_ENV=\"development\" webpack serve",
     "build": "cross-env NODE_ENV=\"production\" webpack build",
     "watch": "webpack --watch",
-    "lint": "eslint --ext js .",
-    "lint:fix": "eslint --ext js --fix .",
+    "lint": "eslint --ext js src/javascripts",
+    "lint:fix": "eslint --ext js --fix src/javascripts",
+    "format": "prettier -c .",
+    "format:fix": "prettier --write .",
+    "fix": "npm run format:fix && npm run lint:fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
