@@ -13,7 +13,7 @@ exports.buildHtmlWebpackPlugins = (entries, templateRootPath) => {
   return Object.keys(entries, templateRootPath).map(
     entryName => new HtmlWebpackPlugin({
       filename: `${entryName}.html`,
-      template: `${templateRootPath}/${entryName}.html`,
+      template: path.resolve(templateRootPath, `${entryName}.html`),
       chunks: [entryName]
     })
   )
