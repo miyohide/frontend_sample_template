@@ -1,12 +1,14 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const entriesGenerator = require("./config/webpack/utils/entriesGenerator");
 
 // developmentモードか否か
 const isDev = process.env.NODE_ENV === "development";
 
-const entries = entriesGenerator.getEntries(path.resolve(__dirname, "src", "javascripts"));
+const entries = entriesGenerator.getEntries(
+  path.resolve(__dirname, "src", "javascripts")
+);
 
 // 補完を効かせるためのJSDoc
 /** @type {import('webpack').Configuration} */
@@ -25,7 +27,10 @@ module.exports = {
     // CSSを別ファイルとして出力するためのプラグインのインスタンス作成
     new MiniCssExtractPlugin(),
     // HTMLもwebpackから出力するためのプラグインの設定
-    ...entriesGenerator.buildHtmlWebpackPlugins(entries, path.resolve(__dirname, "src", "htmls")),
+    ...entriesGenerator.buildHtmlWebpackPlugins(
+      entries,
+      path.resolve(__dirname, "src", "htmls")
+    ),
   ],
 
   module: {
@@ -36,9 +41,7 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: [
-                "@babel/preset-env",
-              ],
+              presets: ["@babel/preset-env"],
             },
           },
         ],
@@ -60,7 +63,7 @@ module.exports = {
             options: {
               // devモードではソースマップをつける
               sourceMap: isDev,
-            }
+            },
           },
         ],
       },
