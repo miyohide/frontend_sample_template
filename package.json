@@ -8,7 +8,7 @@
     "format": "prettier -c .",
     "format:fix": "prettier --write .",
     "fix": "npm run format:fix && npm run lint:fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "jquery": "^3.6.1"
