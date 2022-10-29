@@ -9,7 +9,7 @@ const path = require("path");
 exports.getEntries = (entryRoot) => {
   let entries = {};
   const filePaths = glob.sync(path.resolve(entryRoot, "*.js"), {
-    ignore: path.relative(entryRoot, "libs", "*.js"),
+    ignore: path.resolve(entryRoot, "libs", "*.js"),
   });
   filePaths.forEach((filePath) => {
     entries[path.basename(filePath, path.extname(filePath))] = filePath;
