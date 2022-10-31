@@ -1,10 +1,18 @@
 env:
   browser: true
   es2021: true
+  node: true
 extends:
   - eslint:recommended
   - prettier
-overrides: []
+overrides:
+  - files: ["__tests__/**"]
+    plugins:
+      - "jest"
+    extends:
+      - "plugin:jest/recommended"
+    rules: {"jest/prefer-expect-assertions": "off"}
+
 parserOptions:
   ecmaVersion: latest
   sourceType: module
