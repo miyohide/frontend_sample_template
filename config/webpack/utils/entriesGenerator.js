@@ -2,7 +2,6 @@ const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-// eslint-disable-next-line no-undef
 exports.getEntries = (entryRoot) => {
   let entries = {};
   const filePaths = glob.sync(path.resolve(entryRoot, "*.js"), {
@@ -14,7 +13,6 @@ exports.getEntries = (entryRoot) => {
   return entries;
 };
 
-// eslint-disable-next-line no-undef
 exports.buildHtmlWebpackPlugins = (entries, templateRootPath) => {
   return Object.keys(entries, templateRootPath).map(
     (entryName) =>
