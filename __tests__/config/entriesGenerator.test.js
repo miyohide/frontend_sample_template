@@ -1,6 +1,8 @@
+const glob = require("glob");
 const entriesGenerator = require("../../config/webpack/utils/entriesGenerator");
-const path = require("path");
+jest.mock("glob");
 
 test("return entry files list", () => {
-  expect(entriesGenerator.getEntries(path.resolve(__dirname, "..", "..", "src", "javascripts"))).toHaveProperty("index");
+  glob.sync.mockReturnValue(["abcdefg.js"]);
+  expect(entriesGenerator.getEntries(".")).toEqual({"abcdefg": "abcdefg.js"});
 });
