@@ -7,7 +7,7 @@ const message = "Hello World";
 hello(message);
 
 document.getElementById('send_button').addEventListener('click', () => {
-  axios.get('http://localhost:8081/', {
+  axios.get('http://localhost:8080/', {
     params: {
       name: message
     }
