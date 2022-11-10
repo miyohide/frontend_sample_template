@@ -6,8 +6,10 @@ const message = "Hello World";
 
 hello(message);
 
+axios.defaults.baseURL = 'http://localhost:8080';
+
 document.getElementById('send_button').addEventListener('click', () => {
-  axios.get('http://localhost:8080/', {
+  axios.get('/', {
     params: {
       name: message
     }
