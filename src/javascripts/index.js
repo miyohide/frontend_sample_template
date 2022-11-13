@@ -1,16 +1,11 @@
-import axios from "axios";
 import "../stylesheets/styles.scss";
+import { getRootPathWithName } from "./libs/apicall";
+import { hello } from "./libs/hello";
 
-axios.defaults.baseURL = 'http://localhost:8080';
-
-document.getElementById('send_button').addEventListener('click', () => {
+document.getElementById('send_button').addEventListener('click', async () => {
   const message = document.getElementById("hello_name").value;
-  axios.get('/', {
-    params: {
-      name: message
-    }
-  }).then(function(response) {
-    console.log(response.data);
-    document.getElementById('backendValue').innerText = response.data.content;
-  });
+  console.log(hello(message));
+  const backendValue = await getRootPathWithName(message)
+  console.log(backendValue);
+  document.getElementById('backendValue').innerText = backendValue.content;
 });
