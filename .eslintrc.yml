@@ -11,7 +11,7 @@ overrides:
       - "jest"
     extends:
       - "plugin:jest/recommended"
-    rules: {"jest/prefer-expect-assertions": "off"}
+    rules: { "jest/prefer-expect-assertions": "off" }
 
 parserOptions:
   ecmaVersion: latest
