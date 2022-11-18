@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getRootPathWithName = async (message) => {
+export const getWelcomeMessage = async (message) => {
   axios.defaults.baseURL = "http://localhost:8080";
   let rval = "";
   await axios
