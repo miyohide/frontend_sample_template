@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getWelcomeMessage = async (message) => {
-  axios.defaults.baseURL = "http://localhost:8080";
+  axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8080" : "http://example.com"
   let rval = "";
   await axios
     .get("/", {
