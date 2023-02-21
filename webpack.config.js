@@ -7,6 +7,9 @@ module.exports = {
     index: './src/javascripts/index.js',
   },
   devtool: 'inline-source-map',
+  devServer: {
+    static: './dist'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: './javascripts/index.js',
