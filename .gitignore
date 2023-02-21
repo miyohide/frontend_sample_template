@@ -4,3 +4,5 @@ public/js/*
 !public/js/.keep
 .idea/
 coverage/
+
+.DS_Store
