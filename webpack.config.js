@@ -26,10 +26,10 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: './javascripts/index.js',
+    filename: './javascripts/[name].js',
   },
 
   plugins: [
-    ...htmlGlobPlugins(entries, './src/javascripts')
+    ...htmlGlobPlugins(entries, './src/htmls')
   ],
 };
