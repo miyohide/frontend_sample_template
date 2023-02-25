@@ -1,4 +1,5 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 
@@ -34,6 +35,7 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     ...htmlGlobPlugins(entries, './src/htmls')
   ],
 };
